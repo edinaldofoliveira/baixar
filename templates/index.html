@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReClip | Antigravity Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <img src="/static/img/logo.png" alt="ReClip Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                </div>
+                <h1>ReClip</h1>
+            </div>
+            <p class="subtitle">Sistema Premium de Download de Mídia</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <div class="input-group">
+                    <input type="text" id="url-input" placeholder="Cole a URL do vídeo aqui (YouTube, TikTok, Instagram...)" autocomplete="off">
+                    <button id="fetch-btn">
+                        <span id="btn-text">Buscar Info</span>
+                        <div class="loader" id="btn-loader"></div>
+                    </button>
+                </div>
+            </section>
+
+            <section id="result-container" class="video-card">
+                <!-- Metadata populated by JS -->
+                <div class="video-header">
+                    <div id="video-thumbnail" class="thumbnail"></div>
+                    <div class="video-info">
+                        <h2 id="video-title" class="video-title">Título do Vídeo</h2>
+                        <div id="video-meta" class="video-meta">
+                            <span id="uploader"></span> • <span id="duration"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="selection-area" class="format-selection">
+                    <h3>Selecionar Formato</h3>
+                    <div id="format-list" class="format-list">
+                        <!-- Formats populated by JS -->
+                    </div>
+                </div>
+
+                <div id="download-area" class="download-state" style="display: none;">
+                    <div class="progress-container">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                    <div class="status-row">
+                        <span id="status-text">Iniciando download...</span>
+                        <span id="speed-text">0 KiB/s</span>
+                        <span id="eta-text">--:--</span>
+                    </div>
+                    <div id="finish-btn-container" style="margin-top: 20px; display: none; text-align: center;">
+                        <div style="margin-bottom: 20px; color: var(--accent-primary);">
+                            <i data-lucide="check-circle" size="48"></i>
+                            <div style="margin-top: 10px; font-weight: 600;">Download Concluído!</div>
+                        </div>
+                        <a id="download-link" href="#" class="item-link" style="text-decoration: none;">
+                            <button style="width: 100%;">
+                                <i data-lucide="download" size="18" style="vertical-align: middle; margin-right: 8px;"></i>
+                                Salvar no Dispositivo
+                            </button>
+                        </a>
+                        <button onclick="resetUI()" style="margin-top: 10px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); width: 100%;">
+                            Baixar Outro
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer style="margin-top: 80px; padding: 20px; text-align: center; color: var(--text-dim); border-top: 1px solid var(--glass-border); width: 100%;">
+            <p>Edinaldo Oliveira</p>
+        </footer>
+    </div>
+        </main>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
